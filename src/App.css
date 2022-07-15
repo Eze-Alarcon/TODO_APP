@@ -14,6 +14,9 @@
     --selection-light: hsla(220, 98%, 61%, 1);
     --font: 'Josefin Sans', sans-serif;    
 
+
+    --gradientColor1: hsla(192, 100%, 67%, 1);
+    --gradientColor2: hsla(280, 87%, 65%, 1);
 }
 
 
@@ -58,6 +61,15 @@ li {
 */
 
 
+/* 
+    =================================
+
+    ----- interaction Container -----
+
+    =================================
+*/
+
+
 .interactionContainer {
     min-height: 48rem;
     display: flex;
@@ -77,34 +89,48 @@ li {
     border-radius: 5px;
     border: none;
     display: flex;
+    align-items: center;
     margin: 0;
-    padding: 1.4rem 0 1.4rem 2rem;
-}
-
-.icon-check {
-    width: 20px;
-    height: 20px;
-    border: 1px solid var(--standBy-light);
-    border-radius: 50%;
-    margin: 0 1.2rem 0 0;
-    padding: 0;
+    padding: 0 2rem;
 }
 
 
 .input {
     border: none;
     outline: none;
-    width: 100%;
+    width: 90%;
+    height: 4.8rem;
     margin: 0;
     padding: 0;
     font-family: var(--font);
     color: var(--standBy-light);
-    font-style: regular;
     font-weight: 400;
     font-size: 1.3rem;
     line-height: 1.5rem;
     line-height: 100%;
     letter-spacing: 0.17px;
+}
+
+
+.input:focus {
+    color: var(--normal-light);
+}
+
+
+.todoButton {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    display: grid;
+    place-items: center;
+    width: 10%;
+    height: 48px;
+    transform: rotate(45deg) scale(.8);
+    cursor: pointer;
+}
+
+.todoButton:hover svg path {
+    fill: #008000;
 }
 
 
@@ -120,8 +146,7 @@ li {
 
 
 .todoListContainer {
-    /* background-color: var(--pureWhite); */
-    background-color: lightcoral;
+    background-color: var(--pureWhite);
     --itemHeight: 4.8rem;
     min-height: calc(var(--itemHeight) * 9);
     width: 100%;
@@ -143,9 +168,9 @@ li {
   scrollbar-width: none;  /* Firefox */
 }
 
-/* .todoItem:last-child {
+.todoItem:last-child {
     border-bottom: none;
-} */
+}
 
 .todoItem {
     min-height: 4.8rem;
@@ -156,27 +181,47 @@ li {
     margin: 0;
     padding: 0 2rem 0 2rem;
     border-bottom: .5px solid hsla(236, 32%, 92%, 1);
+    cursor: pointer;
 }
+
+.icon-check {
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--standBy-light);
+    border-radius: 50%;
+    margin: 0 1.2rem 0 0;
+    padding: 0;
+}
+
+
+.todoItem.completed .icon-check {
+    background-color: var(--gradientColor1);
+    background-image: linear-gradient(135deg, var(--gradientColor1) 0%, var(--gradientColor2) 100%);
+}
+
 
 .text {
     width: 80%;
-    font-style: regular;
+    height: 4.8rem;
+    display: grid;
+    align-items: center;
     font-size: 1.3rem;
     line-height: 1.5rem;
     line-height: 100%;
     letter-spacing: 0.17px;
     color: var(--normal-light);
-    margin-top: 3.5px;
 }
 
 .icon-delete {
-    width: 15px;
-    height: 15px;
-    background-image: url("./images/icon-cross.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    justify-self: flex-end;
+    width: 10%;
+    height: 48px;
+    transform: scale(.8);
+    display: grid;
+    place-items: center;
+}
+
+.icon-delete:hover svg path {
+    fill: #ff0000;
 }
 
 .todoListFooter {
@@ -188,3 +233,4 @@ li {
     padding: 0 2rem 0 2rem;
     border-top: 1px solid hsla(236, 32%, 92%, 1);
 }
+

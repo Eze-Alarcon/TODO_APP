@@ -3,9 +3,7 @@ import React from "react";
 
 const TodoSearch = () => {
   	return (
-		<div className="inputContainer">
-			<input className="input" placeholder="Cebolla" />
-		</div>
+		<input className="input" placeholder="Cebolla" />
 	)
 }
   
