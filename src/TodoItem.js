@@ -1,9 +1,9 @@
 const TodoItem = (props) =>{
     return(
-        <li>
-            <span>C</span>
-            <p>{props.text}</p>
-            <span>X</span>
+        <li className="todoItem">
+            <i className="icon-check"></i>
+            <p className="text">{props.text}</p>
+            <i class="icon-delete"></i>
         </li>
     );
 }

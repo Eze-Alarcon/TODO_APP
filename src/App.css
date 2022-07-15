@@ -1,1 +1,190 @@
 
+:root {
+    /* colors */
+
+    --pureWhite: #FFFFFF;
+    --body-light: hsla(0, 0%, 98%, 1);
+    --body-dark: hsla(235, 21%, 11%, 1);
+    
+
+    /* texts */
+
+    --standBy-light: hsla(235, 9%, 61%, 1);
+    --normal-light: hsla(235, 19%, 35%, 1);
+    --selection-light: hsla(220, 98%, 61%, 1);
+    --font: 'Josefin Sans', sans-serif;    
+
+}
+
+
+body {
+    background-color: var(--body-light);
+    background-image: url("./images/bg-mobile-light.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    font-family: var(--font);
+    font-weight: 400;
+    padding: 5rem 2.4rem 0;
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+
+ul, 
+li {
+    list-style: none;
+}
+
+
+.title {
+    color: var(--pureWhite);
+    text-align: center;
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+    letter-spacing: .75px;
+    margin-bottom: 4rem;
+}
+
+
+/* 
+    =================
+
+    ----- Todos -----
+
+    =================
+*/
+
+
+.interactionContainer {
+    min-height: 48rem;
+    display: flex;
+    gap: 1.6rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+
+.inputContainer {
+    background-color: var(--pureWhite);
+    width: 100%;
+    min-height: 4.8rem;
+    border-radius: 5px;
+    border: none;
+    display: flex;
+    margin: 0;
+    padding: 1.4rem 0 1.4rem 2rem;
+}
+
+.icon-check {
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--standBy-light);
+    border-radius: 50%;
+    margin: 0 1.2rem 0 0;
+    padding: 0;
+}
+
+
+.input {
+    border: none;
+    outline: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font);
+    color: var(--standBy-light);
+    font-style: regular;
+    font-weight: 400;
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+    line-height: 100%;
+    letter-spacing: 0.17px;
+}
+
+
+
+
+/* 
+    ==========================
+
+    ----- Todo Container -----
+
+    ==========================
+*/
+
+
+.todoListContainer {
+    /* background-color: var(--pureWhite); */
+    background-color: lightcoral;
+    --itemHeight: 4.8rem;
+    min-height: calc(var(--itemHeight) * 9);
+    width: 100%;
+    border-radius: 5px;
+}
+
+.todoList {
+    --itemHeight: 4.8rem;
+    height: calc(var(--itemHeight) * 8);
+    overflow-y: scroll;
+}
+
+.todoList::-webkit-scrollbar {
+    display: none;
+}
+
+.todoList {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* .todoItem:last-child {
+    border-bottom: none;
+} */
+
+.todoItem {
+    min-height: 4.8rem;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0 2rem 0 2rem;
+    border-bottom: .5px solid hsla(236, 32%, 92%, 1);
+}
+
+.text {
+    width: 80%;
+    font-style: regular;
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+    line-height: 100%;
+    letter-spacing: 0.17px;
+    color: var(--normal-light);
+    margin-top: 3.5px;
+}
+
+.icon-delete {
+    width: 15px;
+    height: 15px;
+    background-image: url("./images/icon-cross.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    justify-self: flex-end;
+}
+
+.todoListFooter {
+    --itemHeight: 4.8rem;
+    height: var(--itemHeight);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem 0 2rem;
+    border-top: 1px solid hsla(236, 32%, 92%, 1);
+}
