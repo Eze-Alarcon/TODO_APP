@@ -23,8 +23,8 @@
 body {
     background-color: var(--body-light);
     background-image: url("./images/bg-mobile-light.jpg");
-    background-repeat: no-repeat;
     background-size: 100% 20rem;
+    background-repeat: no-repeat;
     font-family: var(--font);
     font-weight: 400;
     padding: 5rem 2.4rem 0;
@@ -33,6 +33,12 @@ body {
     flex-direction: column;
 }
 
+@media (min-width: 768px) {
+    body {
+        background-image: url("./images/bg-desktop-light.jpg");
+        background-size: 100% 30rem;
+    }
+}
 
 ul, 
 li {
@@ -49,6 +55,16 @@ li {
     line-height: 1.8rem;
     letter-spacing: .75px;
     margin-bottom: 4rem;
+}
+
+
+@media (min-width: 768px) {
+    .title {
+        font-size: 3rem;
+        line-height: 3rem;
+        letter-spacing: 1.125px;
+        margin-bottom: 4.8rem;
+    }
 }
 
 
@@ -72,6 +88,7 @@ li {
 
 .interactionContainer {
     min-height: 48rem;
+    max-width: 54rem;
     display: flex;
     gap: 1.6rem;
     flex-direction: column;
@@ -79,13 +96,6 @@ li {
     justify-content: space-between;
     margin: 0 auto;
 }
-
-@media (min-width: 768px) {
-    .interactionContainer {
-        max-width: 54rem;
-    }
-}
-
 
 
 
@@ -101,7 +111,6 @@ li {
     padding: 0 2rem;
 }
 
-
 .input {
     border: none;
     outline: none;
@@ -114,7 +123,6 @@ li {
     font-weight: 400;
     font-size: 1.3rem;
     line-height: 1.5rem;
-    line-height: 100%;
     letter-spacing: 0.17px;
 }
 
@@ -144,7 +152,17 @@ li {
 }
 
 
+@media (min-width: 678px) {
+    .inputContainer {
+        height: 6.8rem;
+    }
 
+    .input {
+        font-size: 1.8rem;
+        line-height: 1.8rem;
+        letter-spacing: 0.25px;
+    }
+}
 
 /* 
     ==========================
@@ -257,6 +275,12 @@ li {
     color: var(--standBy-light);
 }
 
+
+@media (min-width: 768px) {
+    .todoItem {
+        min-height: 6.4rem;
+    }
+}
 
 /* 
     =======================
