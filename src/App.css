@@ -191,12 +191,20 @@ li {
     border-radius: 50%;
     margin: 0 1.2rem 0 0;
     padding: 0;
+    display: grid;
+    place-items: center;
 }
+
 
 
 .todoItem.completed .icon-check {
     background-color: var(--gradientColor1);
     background-image: linear-gradient(135deg, var(--gradientColor1) 0%, var(--gradientColor2) 100%);
+}
+
+.todoItem.completed .text {
+    text-decoration: line-through;
+    color: var(--standBy-light);
 }
 
 
