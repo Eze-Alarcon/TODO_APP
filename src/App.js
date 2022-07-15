@@ -10,14 +10,7 @@ const todos = [
 	{ text: "Cortar cebolla", completed: false },
 	{ text: "Terminar curso", completed: false },
 	{ text: "Algo mas para hacer", completed: false },
-	{ text: "Terminar curso", completed: false },
-	{ text: "Terminar curso", completed: true },
-	{ text: "Terminar curso", completed: false },
-	{ text: "Terminar curso", completed: false },
-	{ text: "Terminar curso", completed: false },
-	{ text: "Terminar curso", completed: false },
-	{ text: "Terminar curso", completed: false },
-	{ text: "Terminar curso", completed: false },
+	{ text: "Terminar curso", completed: false }
 ]
 
 

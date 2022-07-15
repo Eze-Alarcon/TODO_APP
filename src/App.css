@@ -24,11 +24,11 @@ body {
     background-color: var(--body-light);
     background-image: url("./images/bg-mobile-light.jpg");
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 100% 20rem;
     font-family: var(--font);
     font-weight: 400;
     padding: 5rem 2.4rem 0;
-    max-width: 100vw;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -77,6 +77,13 @@ li {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .interactionContainer {
+        max-width: 54rem;
+    }
 }
 
 
@@ -125,8 +132,11 @@ li {
     place-items: center;
     width: 10%;
     height: 48px;
-    transform: rotate(45deg) scale(.8);
+}
+
+.todoButton svg {
     cursor: pointer;
+    transform: rotate(45deg) scale(.8);
 }
 
 .todoButton:hover svg path {
@@ -151,6 +161,7 @@ li {
     min-height: calc(var(--itemHeight) * 9);
     width: 100%;
     border-radius: 5px;
+    box-shadow: 0 0 20px 0 hsla(235, 9%, 61%, 1);
 }
 
 .todoList {
@@ -242,3 +253,39 @@ li {
     border-top: 1px solid hsla(236, 32%, 92%, 1);
 }
 
+.todoListFooter p {
+    color: var(--standBy-light);
+}
+
+
+/* 
+    =======================
+
+    ----- Todo Filter -----
+
+    =======================
+*/
+
+
+.todoFilter {
+    height: 4.8rem;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 9px 20px 0 hsla(235, 9%, 61%, 1);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;   
+}
+
+.filter {
+    color: var(--standBy-light);
+    font-weight: bold;
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    cursor: pointer;
+}
+
+.filter.active {
+    color: var(--selection-light);
+}
