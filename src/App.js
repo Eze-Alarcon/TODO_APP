@@ -1,21 +1,28 @@
-import { TodoCounter } from "./TodoCounter";
-import { TodoSearch } from "./TodoSearch.js";
-import { TodoList } from "./TodoList.js";
-import { TodoItem } from "./TodoItem.js";
-import { CreateTodoButton } from "./CreateTodoButton";
-import { TodoFilter } from "./TodoFilter";
 import "./App.css"
 import { useState } from "react";
+import { AppUI } from "./AppUI";
 
-const defaultTodos = [
-	{ text: "Cortar cebolla", completed: false },
-	{ text: "Terminar curso", completed: false },
-	{ text: "Algo mas para hacer", completed: true },
-]
+// const defaultTodos = [
+// 	{ text: "Cortar cebolla", completed: false },
+// 	{ text: "Terminar curso", completed: false },
+// 	{ text: "Algo mas para hacer", completed: false },
+// 	{ text: "LALALALA", completed: true },
+// ]
 
 
 function App() {
-	const [todos, setTodos] = useState(defaultTodos)
+	const localStorageTodos = localStorage.getItem('TODOS_V1')
+	let parsedTodos;
+
+	// verificamos si el usuario es nuevo o ya tiene todos guardados
+	if (!localStorageTodos) {
+		localStorage.setItem('TODOS_V1', JSON.stringify([]))
+		parsedTodos = []
+	} else {
+		parsedTodos = JSON.parse(localStorageTodos)
+	}
+
+	const [todos, setTodos] = useState(parsedTodos)
 	const [searchValue, setSearchValue] = useState('')
 	
 	const completedTodos = todos.filter(todo => !!todo.completed).length // !! === true
@@ -33,37 +40,39 @@ function App() {
 		})
 	}
 
+
+	const saveTodos = (newTodos) => {
+		const stringifiedTodos = JSON.stringify(newTodos)
+		localStorage.setItem('TODOS_V1', stringifiedTodos)
+		setTodos(newTodos)
+	}
+
+	const completeTodo = (text) => {
+		const todoIndex = todos.findIndex(todo => todo.text === text)
+		const newTodos = [...todos]
+		newTodos[todoIndex].completed = true
+		saveTodos(newTodos)
+	}
+
+
+	const deleteTodo = (text) => {
+		const todoIndex = todos.findIndex(todo => todo.text === text)
+		const newTodos = [...todos]
+		newTodos.splice(todoIndex, 1)
+		saveTodos(newTodos)
+	}
+
+
 	return (
-	<> 
-
-	<TodoCounter 
-		total={totalTodos}
-		completed={completedTodos}
-	/>
-
-	<section className="interactionContainer">
-		<article className="inputContainer">
-			<TodoSearch
-				searchValue={searchValue}
-				setSearchValue={setSearchValue}
-				/>
-			<CreateTodoButton />
-		</article>
-
-		<TodoList>
-			{
-				searchedTodos.map((todo) => (
-					<TodoItem text={todo.text} 
-					key={todo.text}
-					completed={todo.completed}/>
-				))
-			}
-		</TodoList>
-		
-		<TodoFilter/>
-		
-	</section>
-	</>
+		<AppUI 
+			totalTodos={totalTodos}
+			completedTodos={completedTodos}
+			searchValue={searchValue}
+			setSearchValue={setSearchValue}
+			searchedTodos={searchedTodos}
+			completeTodo={completeTodo}
+			deleteTodo={deleteTodo}
+		/>
 	);
 }
 
