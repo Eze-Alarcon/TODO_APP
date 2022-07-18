@@ -164,6 +164,8 @@ li {
     }
 }
 
+
+
 /* 
     ==========================
 
@@ -171,6 +173,7 @@ li {
 
     ==========================
 */
+
 
 
 .todoListContainer {
@@ -244,14 +247,13 @@ li {
     align-items: center;
     font-size: 1.3rem;
     line-height: 1.5rem;
-    line-height: 100%;
     letter-spacing: 0.17px;
     color: var(--normal-light);
 }
 
 .icon-delete {
     width: 10%;
-    height: 48px;
+    height: 4.8rem;
     transform: scale(.8);
     display: grid;
     place-items: center;
@@ -260,6 +262,7 @@ li {
 .icon-delete:hover svg path {
     fill: #ff0000;
 }
+
 
 .todoListFooter {
     --itemHeight: 4.8rem;
@@ -275,10 +278,24 @@ li {
     color: var(--standBy-light);
 }
 
+.todoListFooter p:nth-child(2) {
+    cursor: pointer;
+}
+
 
 @media (min-width: 768px) {
     .todoItem {
         min-height: 6.4rem;
+    }
+
+    .text {
+        font-size: 1.8rem;
+        line-height: 1.8rem;
+    }
+
+    .icon-check {
+        width: 24px;
+        height: 24px;
     }
 }
 
