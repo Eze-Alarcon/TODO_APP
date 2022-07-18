@@ -1,11 +1,11 @@
 const TodoItem = (props) =>{
 
     const onCompleted = () => {
-        console.log('ya completaste el todo')   
+        console.log(`ya completaste el todo ${props.text}`)   
     }
 
     const onDelete = () => {
-        console.log('ya borraste el todo')   
+        console.log(`Borraste el todo ${props.text}`)
     }
 
     return(

@@ -1,8 +1,11 @@
 import React from "react";
 
 
-const TodoCounter = () => {
-	return <h2 className="title">Has completado 2 de 3 TODOs</h2>;
+const TodoCounter = ({ total, completed}) => {
+
+	return (
+		<h2 className="title">{`Has completado ${completed} de ${total} TODOs`}</h2>
+	)
 }
 
 
