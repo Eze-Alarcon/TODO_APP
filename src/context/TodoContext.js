@@ -26,6 +26,8 @@ const TodoProvider = (props) => {
 		error,
 	} = useLocalStorage('TODOS_V1', [])
 
+	const [openModal, setOpenModal] = useState(false)
+
 	
 	const [searchValue, setSearchValue] = useState('')
 	
@@ -43,6 +45,18 @@ const TodoProvider = (props) => {
 			return todoText.includes(searchText)
 		})
 	}
+
+
+
+	const addTodo = (text) => {
+		const newTodos = [...todos]
+		newTodos.push({
+			completed: false,
+			text,
+		})
+		saveTodos(newTodos)
+	}
+
 
 
 	
@@ -73,8 +87,11 @@ const TodoProvider = (props) => {
 			searchValue,
 			setSearchValue,
 			searchedTodos,
+			addTodo,
 			completeTodo,
 			deleteTodo,
+			openModal,
+			setOpenModal,
         }}>
             {props.children}
         </TodoContext.Provider>

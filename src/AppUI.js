@@ -7,6 +7,7 @@ import { TodoItem } from "./components/TodoItem.js";
 import { CreateTodoButton } from "./components/CreateTodoButton";
 import { TodoFilter } from "./components/TodoFilter";
 import { Modal } from "./components/Modal"; 
+import { TodoForm } from "./components/TodoForm";
 
 /* 
 {
@@ -30,7 +31,9 @@ const AppUI = () => {
 		loading, 
 		searchedTodos, 
 		completeTodo, 
-		deleteTodo
+		deleteTodo,
+		openModal,
+		setOpenModal,
 	} = useContext(TodoContext)
 
 
@@ -43,7 +46,8 @@ const AppUI = () => {
 	<section className="interactionContainer">
 		<article className="inputContainer">
 			<TodoSearch/>
-			<CreateTodoButton />
+			<CreateTodoButton 
+			setOpenModal={setOpenModal} />
 		</article>
 
 		<TodoList>
@@ -72,9 +76,13 @@ const AppUI = () => {
 
 	</section>
 
-	<Modal>
-		<p>HOliwisfbaubndasdsa</p>
-	</Modal>
+	{
+		(!!openModal) && (
+			<Modal>
+				<TodoForm/>
+			</Modal>
+		)
+	}
 
 	</>
     )
