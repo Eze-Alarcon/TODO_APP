@@ -8,20 +8,10 @@ import { CreateTodoButton } from "./components/CreateTodoButton";
 import { TodoFilter } from "./components/TodoFilter";
 import { Modal } from "./components/Modal"; 
 import { TodoForm } from "./components/TodoForm";
+import { TodosError } from "./components/TodosError";
+import { TodosLoading } from "./components/TodosLoading";
+import { EmptyTodos } from "./components/EmptyTodos";
 
-/* 
-{
-	loading,
-	error,
-	totalTodos,
-	completedTodos,
-	searchValue,
-	setSearchValue,
-	searchedTodos,
-	completeTodo,
-	deleteTodo,
-}
-*/
 
 const AppUI = () => {
 
@@ -52,11 +42,11 @@ const AppUI = () => {
 
 		<TodoList>
 			{/* Estados de carga de la aplicacion: */}
-			{error && <p>Hubo un error...</p>}
-			{loading && <p>Estamos cargando</p>}
+			{error && <TodosError error={error} />}
+			{loading && <TodosLoading />}
 
 			{/* Si no esta cargando y no hay todos (lenght === 0) */}
-			{(!loading && !searchedTodos.length) && <p>Crea tu primer Todo</p>}
+			{(!loading && !searchedTodos.length) && <EmptyTodos/>}
 
 
 

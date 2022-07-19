@@ -300,6 +300,61 @@ li {
 }
 
 /* 
+    ========================
+
+    ----- TodosLoading -----
+
+    ========================
+*/
+
+.LoadingTodo {
+    width: 100%;
+    height: 4.8rem;
+    border-bottom: .5px solid hsla(236, 32%, 92%, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circleLoading {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: 0 1.2rem 0 0;
+}
+
+
+.textLoading {
+    height: 50%;
+    width: 80%;
+    border-radius: 10px;
+}
+
+.animation {
+    --color1: rgba(250,250,250,1);
+    --color2: rgb(200,199,199);
+    background: linear-gradient(90deg, var(--color1), var(--color2));
+    background-size: 400% 400%;
+    animation: loadingAnimation 3s ease-in-out infinite;
+}
+
+
+@keyframes loadingAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+
+
+/* 
     =======================
 
     ----- Todo Filter -----
