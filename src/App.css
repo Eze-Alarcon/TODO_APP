@@ -299,6 +299,146 @@ li {
     }
 }
 
+
+
+
+
+/* 
+    =======================
+
+    ----- Todo Filter -----
+
+    =======================
+*/
+
+
+.todoFilter {
+    height: 4.8rem;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 9px 20px 0 hsla(235, 9%, 61%, 1);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;   
+}
+
+.filter {
+    color: var(--standBy-light);
+    font-weight: bold;
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    cursor: pointer;
+}
+
+.filter.active {
+    color: var(--selection-light);
+}
+
+
+
+
+
+
+/* 
+    =================
+
+    ----- Modal -----
+
+    =================
+*/
+
+
+.TodoFormContainer {
+    background: rgba( 32, 35, 41, .8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+
+.TodoForm {
+    width: 90%;
+    max-width: 300px;
+    background-color: #fff;
+    padding: 33px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.TodoForm label {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: #1E1E1F;
+    margin-bottom: 26px;
+}
+
+.TodoForm textarea {
+    background-color: #F9FBFC;
+    border: 2px solid #202329;
+    border-radius: 2px;
+    box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.25);
+    color: #1E1E1F;
+    font-size: 20px;
+    text-align: center;
+    padding: 12px;
+    height: 96px;
+    width: calc(100% - 25px);
+}
+
+.TodoForm textarea::placeholder {
+    color: #A5A5A5;
+    font-weight: 400;
+}
+
+textarea:focus {
+    outline-color: #61DAFA;
+}
+
+.TodoForm-buttonContainer {
+    margin-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.TodoForm-button {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 20px;
+    color: #202329;
+    font-weight: 400;
+    width: 120px;
+    height: 48px;
+    border-radius: 2px;
+    border: none;
+}
+
+.TodoForm-button--add {
+    background: #61DAFA;
+    box-shadow: 0px 5px 25px rgba(97, 218, 250, 0.5);
+}
+
+.TodoForm-button--cancel {
+    background: transparent;
+}
+
+
+
+
+
+
 /* 
     ========================
 
@@ -351,147 +491,42 @@ li {
     }
 }
 
-
-
-
 /* 
-    =======================
+    ========================
 
-    ----- Todo Filter -----
+    ----- EmptyLoading -----
 
-    =======================
+    ========================
 */
 
 
-.todoFilter {
-    height: 4.8rem;
-    width: 100%;
-    border-radius: 5px;
-    box-shadow: 0 9px 20px 0 hsla(235, 9%, 61%, 1);
+.firstTodo {
+    min-height: 4.8rem;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;   
-}
-
-.filter {
-    color: var(--standBy-light);
-    font-weight: bold;
-    font-size: 1.4rem;
-    line-height: 1.4rem;
-    cursor: pointer;
-}
-
-.filter.active {
-    color: var(--selection-light);
-}
-
-
-
-
-
-
-
-/* 
-    =================
-
-    ----- Modal -----
-
-    =================
-*/
-
-
-.TodoFormContainer {
-    background: rgba( 32, 35, 41, .8);
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: white;
+    margin: 0;
+    padding: 0 2rem 0 2rem;
+    border: none;
+    border-bottom: .5px solid hsla(236, 32%, 92%, 1);
 }
 
 
+/* 
+    ========================
+
+    ----- TodosError -----
+
+    ========================
+*/
 
 
-
-
-
-
-
-
-.TodoForm {
-  width: 90%;
-  max-width: 300px;
-  background-color: #fff;
-  padding: 33px 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.errorTodo {
+    height: 100%;
+    display: grid;
+    place-items: center;
 }
 
-.TodoForm label {
-  text-align: center;
-  font-weight: bold;
-  font-size: 20px;
-  color: #1E1E1F;
-  margin-bottom: 26px;
-}
-
-.TodoForm textarea {
-  background-color: #F9FBFC;
-  border: 2px solid #202329;
-  border-radius: 2px;
-  box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.25);
-  color: #1E1E1F;
-  font-size: 20px;
-  text-align: center;
-  padding: 12px;
-  height: 96px;
-  width: calc(100% - 25px);
-}
-
-.TodoForm textarea::placeholder {
-  color: #A5A5A5;
-  font-family: 'Montserrat';
-  font-weight: 400;
-}
-
-textarea:focus {
-  outline-color: #61DAFA;
-}
-
-.TodoForm-buttonContainer {
-  margin-top: 14px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.TodoForm-button {
-  cursor: pointer;
-  display: inline-block;
-  font-size: 20px;
-  color: #202329;
-  font-weight: 400;
-  width: 120px;
-  height: 48px;
-  border-radius: 2px;
-  border: none;
-  font-family: 'Montserrat';
-}
-
-.TodoForm-button--add {
-  background: #61DAFA;
-  box-shadow: 0px 5px 25px rgba(97, 218, 250, 0.5);
-}
-
-.TodoForm-button--cancel {
-  background: transparent;
+.errorTodo .text {
+    text-align: center;
 }

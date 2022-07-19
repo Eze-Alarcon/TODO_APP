@@ -1,6 +1,8 @@
 const EmptyTodos = ()  => {
     return (
-        <p>Crea tu primer Todo!</p>
+        <li className="firstTodo">
+            <p className="text">Crea tu primer Todo usando la barra superior!</p>
+        </li>
     )
 }
 
