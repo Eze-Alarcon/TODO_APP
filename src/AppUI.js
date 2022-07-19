@@ -1,37 +1,48 @@
-import React from "react";
+import React, { useContext } from "react";
+import { TodoContext } from "./context/TodoContext";
 import { TodoCounter } from "./components/TodoCounter";
 import { TodoSearch } from "./components/TodoSearch.js";
 import { TodoList } from "./components/TodoList.js";
 import { TodoItem } from "./components/TodoItem.js";
 import { CreateTodoButton } from "./components/CreateTodoButton";
 import { TodoFilter } from "./components/TodoFilter";
+import { Modal } from "./components/Modal"; 
 
-const AppUI = ({
-		loading,
-		error,
-        totalTodos,
-        completedTodos,
-        searchValue,
-        setSearchValue,
-        searchedTodos,
-        completeTodo,
-        deleteTodo,
-    }) => {
+/* 
+{
+	loading,
+	error,
+	totalTodos,
+	completedTodos,
+	searchValue,
+	setSearchValue,
+	searchedTodos,
+	completeTodo,
+	deleteTodo,
+}
+*/
+
+const AppUI = () => {
+
+	
+	const { 
+		error, 
+		loading, 
+		searchedTodos, 
+		completeTodo, 
+		deleteTodo
+	} = useContext(TodoContext)
+
+
     
     return (
     <> 
 
-	<TodoCounter 
-		total={totalTodos}
-		completed={completedTodos}
-	/>
+	<TodoCounter />
 
 	<section className="interactionContainer">
 		<article className="inputContainer">
-			<TodoSearch
-				searchValue={searchValue}
-				setSearchValue={setSearchValue}
-				/>
+			<TodoSearch/>
 			<CreateTodoButton />
 		</article>
 
@@ -58,8 +69,13 @@ const AppUI = ({
 		</TodoList>
 		
 		<TodoFilter/>
-		
+
 	</section>
+
+	<Modal>
+		<p>HOliwisfbaubndasdsa</p>
+	</Modal>
+
 	</>
     )
 }
