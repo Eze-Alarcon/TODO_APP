@@ -1,22 +1,8 @@
-import { createContext } from 'react'
 import { useState } from 'react'
 import { useLocalStorage } from './useLocalStorage'
 
 
-/* 
-    Creador del contexto y forma en la cual lo llamaremos.
-
-    Context tiene 2 componentes:
-
-    * el Provider
-    * y el Consumer
-*/
-const TodoContext = createContext()
-
-
-
-
-const TodoProvider = (props) => {
+const useTodos = () => {
 
     // Llamado a nuestro Custom Hook
 	const {
@@ -78,24 +64,21 @@ const TodoProvider = (props) => {
 
 
 
-    return (
-        <TodoContext.Provider value={{
-            error,
-			loading,
-			totalTodos,
-			completedTodos,
-			searchValue,
-			setSearchValue,
-			searchedTodos,
-			addTodo,
-			completeTodo,
-			deleteTodo,
-			openModal,
-			setOpenModal,
-        }}>
-            {props.children}
-        </TodoContext.Provider>
+    return ({
+		error,
+		loading,
+		totalTodos,
+		completedTodos,
+		searchValue,
+		setSearchValue,
+		searchedTodos,
+		addTodo,
+		completeTodo,
+		deleteTodo,
+		openModal,
+		setOpenModal,
+	}
     )
 }
 
-export { TodoContext, TodoProvider }
+export { useTodos }
