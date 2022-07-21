@@ -11,6 +11,7 @@ import { TodoForm } from "./components/TodoForm";
 import { TodosError } from "./components/TodosError";
 import { TodosLoading } from "./components/TodosLoading";
 import { EmptyTodos } from "./components/EmptyTodos";
+import { EmptyResults } from "./components/EmptyResults";
 
 
 
@@ -53,10 +54,14 @@ const App = () =>{
 			error={error}	
 			loading={loading}
 			searchedTodos={searchedTodos}
+			totalTodos={totalTodos}
 			onError={() => <TodosError/>}
 			onLoading={() => <TodosLoading/>}
 			onEmptyTodos={() => <EmptyTodos/>}
-			render={todo => (
+			onEmptySearchResults={
+				() => <EmptyResults searchText={searchValue}/>
+			}
+			/* render={todo => (
 				<TodoItem 
 					text={todo.text} 
 					key={todo.text}
@@ -64,11 +69,23 @@ const App = () =>{
 					onComplete={() => completeTodo(todo.text)}
 					onDelete={() => deleteTodo(todo.text)}
 				/>
-			)}
-		/>
+			)} */
+		>
 
+		{todo => (
+			<TodoItem 
+				text={todo.text} 
+				key={todo.text}
+				completed={todo.completed}
+				onComplete={() => completeTodo(todo.text)}
+				onDelete={() => deleteTodo(todo.text)}
+			/>
+		)}
+		
+		</TodoList>
 
 		<TodoFilter/>
+
 
 	</section>
 

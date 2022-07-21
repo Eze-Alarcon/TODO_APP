@@ -9,14 +9,21 @@ const TodoList = (props) => {
 
                 {props.error && props.onError()}
                 {props.loading && props.onLoading()}
-                {(!props.loading && !props.searchedTodos?.length) && props.onEmptyTodos()}
-                
-                {props.searchedTodos.map(props.render)}
+                {(!props.loading && !props.totalTodos) && props.onEmptyTodos()}
+
+                {
+                    (!!props.totalTodos &&  !props.searchedTodos.length) && props.onEmptySearchResults()
+                }
+
+
+                {/* {props.searchedTodos.map(props.render)} */}
                 {/* Lo de arriba es lo mismo que: */}
                 {/* {props.searchedTodos.map( todo => props.render(todo))} */}
 
+                {/* {props.searchedTodos.map(props.children)} */} {/* Asi se ejecuta la render function */}
 
-                {props.children}
+                {props.searchedTodos.map(props.render || props.children)} {/* De esta forma podemos ejecutar uno o el otro dependiendo de que nos envia el componente padre */}
+
             </ul>
             <div className="todoListFooter">
                 <p>5 items restantes</p>
