@@ -57,6 +57,10 @@ li {
     margin-bottom: 4rem;
 }
 
+.title.loading {
+    opacity: .25;
+}
+
 
 @media (min-width: 768px) {
     .title {
@@ -131,6 +135,9 @@ li {
     color: var(--normal-light);
 }
 
+.input:disabled {
+    opacity: .25;
+}
 
 .todoButton {
     background-color: inherit;

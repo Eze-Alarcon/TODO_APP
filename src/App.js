@@ -38,6 +38,7 @@ const App = () =>{
 	<TodoCounter 
 		totalTodos={totalTodos}
 		completedTodos={completedTodos}
+		loading={loading}
 	/>
 
 	<section className="interactionContainer">
@@ -45,6 +46,7 @@ const App = () =>{
 			<TodoSearch
 				searchValue={searchValue}
 				setSearchValue={setSearchValue}
+				loading={loading}
 			/>
 			<CreateTodoButton 
 			setOpenModal={setOpenModal} />
