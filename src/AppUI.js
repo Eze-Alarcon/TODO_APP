@@ -24,6 +24,10 @@ const AppUI = () => {
 		deleteTodo,
 		openModal,
 		setOpenModal,
+		totalTodos,
+		completedTodos,
+		searchValue,
+		setSearchValue
 	} = useContext(TodoContext)
 
 
@@ -31,11 +35,17 @@ const AppUI = () => {
     return (
     <> 
 
-	<TodoCounter />
+	<TodoCounter 
+		totalTodos={totalTodos}
+		completedTodos={completedTodos}
+	/>
 
 	<section className="interactionContainer">
 		<article className="inputContainer">
-			<TodoSearch/>
+			<TodoSearch
+				searchValue={searchValue}
+				setSearchValue={setSearchValue}
+			/>
 			<CreateTodoButton 
 			setOpenModal={setOpenModal} />
 		</article>
