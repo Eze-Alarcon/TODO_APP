@@ -49,28 +49,25 @@ const App = () =>{
 			setOpenModal={setOpenModal} />
 		</article>
 
-		<TodoList>
-			{/* Estados de carga de la aplicacion: */}
-			{error && <TodosError error={error} />}
-			{loading && <TodosLoading />}
-
-			{/* Si no esta cargando y no hay todos (lenght === 0) */}
-			{(!loading && !searchedTodos.length) && <EmptyTodos/>}
-
-
-
-			{
-				searchedTodos.map((todo) => (
-					<TodoItem text={todo.text} 
+		<TodoList
+			error={error}	
+			loading={loading}
+			searchedTodos={searchedTodos}
+			onError={() => <TodosError/>}
+			onLoading={() => <TodosLoading/>}
+			onEmptyTodos={() => <EmptyTodos/>}
+			render={todo => (
+				<TodoItem 
+					text={todo.text} 
 					key={todo.text}
 					completed={todo.completed}
 					onComplete={() => completeTodo(todo.text)}
 					onDelete={() => deleteTodo(todo.text)}
-					/>
-				))
-			}
-		</TodoList>
-		
+				/>
+			)}
+		/>
+
+
 		<TodoFilter/>
 
 	</section>
