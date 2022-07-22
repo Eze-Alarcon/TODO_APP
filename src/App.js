@@ -12,7 +12,7 @@ import { TodosError } from "./components/TodosError";
 import { TodosLoading } from "./components/TodosLoading";
 import { EmptyTodos } from "./components/EmptyTodos";
 import { EmptyResults } from "./components/EmptyResults";
-
+import { ChangeAlertwithStorageListener } from "./components/ChangeAlert";
 
 
 const App = () =>{
@@ -101,6 +101,8 @@ const App = () =>{
 			</Modal>
 		)
 	}
+
+	<ChangeAlertwithStorageListener />
 
 	</>
     )
