@@ -22,7 +22,7 @@ const TodoList = (props) => {
 
                 {/* {props.searchedTodos.map(props.children)} */} {/* Asi se ejecuta la render function */}
 
-                {props.searchedTodos.map(props.render || props.children)} {/* De esta forma podemos ejecutar uno o el otro dependiendo de que nos envia el componente padre */}
+                {(!props.error && !props.loading) && props.searchedTodos.map(props.render || props.children)} {/* De esta forma podemos ejecutar uno o el otro dependiendo de que nos envia el componente padre */}
 
             </ul>
             <div className="todoListFooter">

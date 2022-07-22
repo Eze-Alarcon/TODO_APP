@@ -103,9 +103,7 @@ const App = () =>{
 		)
 	}
 
-	<ChangeAlertwithStorageListener 
-		sync={sincronizeTodos}
-	/>
+	<ChangeAlertwithStorageListener sync={sincronizeTodos} />
 
 	</>
     )

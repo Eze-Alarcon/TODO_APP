@@ -5,15 +5,19 @@ const ChangeAlert = ({ show, toggleShow }) => {
 
     if (show) {
         return (
-            <div>
-                <p>Hubo cambios</p>
+            <div className="ChangeAlert-bg">
+                <div className="ChangeAlertContainer">
+                <p>Parece que cambiaste tus TODOs en otra pestaña o ventana del navegador.</p>
+                <p>¿Quieres sincronizar tus TODOs?</p>
                 <button
-                    onClick={() => toggleShow(false)}
+                    className="TodoForm-button TodoForm-button--add"
+                    onClick={toggleShow}
                 >
-                    Volver a cargar la informacion
+                    Yes!
                 </button>
+                </div>
             </div>
-        )
+        );
     } else {
         return null;
     }
