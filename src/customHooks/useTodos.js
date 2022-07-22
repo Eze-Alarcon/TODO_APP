@@ -8,6 +8,7 @@ const useTodos = () => {
 	const {
 		item: todos,
 		saveItem: saveTodos,
+		sincronize: sincronizeTodos,
 		loading,
 		error,
 	} = useLocalStorage('TODOS_V1', [])
@@ -77,8 +78,8 @@ const useTodos = () => {
 		deleteTodo,
 		openModal,
 		setOpenModal,
-	}
-    )
+		sincronizeTodos,
+	})
 }
 
 export { useTodos }

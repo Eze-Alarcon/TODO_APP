@@ -30,6 +30,7 @@ const App = () =>{
 		searchValue,
 		setSearchValue,
 		addTodo,
+		sincronizeTodos,
 	} = useTodos()
 
 	return (
@@ -102,7 +103,9 @@ const App = () =>{
 		)
 	}
 
-	<ChangeAlertwithStorageListener />
+	<ChangeAlertwithStorageListener 
+		sync={sincronizeTodos}
+	/>
 
 	</>
     )
