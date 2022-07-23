@@ -1,7 +1,9 @@
 import React from "react";
-import { withStorageListener } from "./HOC/withStorageListener";
+import { useStorageListener } from "./HOC/useStorageListener";
 
-const ChangeAlert = ({ show, toggleShow }) => {
+const ChangeAlert = ({ sync }) => {
+
+    const { show, toggleShow } = useStorageListener(sync)
 
     if (show) {
         return (
@@ -24,6 +26,4 @@ const ChangeAlert = ({ show, toggleShow }) => {
 
 } 
 
-const ChangeAlertwithStorageListener = withStorageListener(ChangeAlert)
-
-export { ChangeAlertwithStorageListener }
+export { ChangeAlert }
