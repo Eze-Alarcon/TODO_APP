@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useLocalStorage } from './useLocalStorage'
+import { useLocalStorage } from './useLocalStorage_v2'
 
 
 const useTodos = () => {
@@ -13,10 +13,8 @@ const useTodos = () => {
 		error,
 	} = useLocalStorage('TODOS_V1', [])
 
-	const [openModal, setOpenModal] = useState(false)
-
-	
 	const [searchValue, setSearchValue] = useState('')
+	const [openModal, setOpenModal] = useState(false)
 	
 	const completedTodos = todos.filter(todo => !!todo.completed).length // !! === true
 	const totalTodos = todos.length
@@ -46,8 +44,6 @@ const useTodos = () => {
 
 
 
-	
-
 	const completeTodo = (text) => {
 		const todoIndex = todos.findIndex(todo => todo.text === text)
 		const newTodos = [...todos]
@@ -64,8 +60,7 @@ const useTodos = () => {
 	}
 
 
-
-    return ({
+    return {
 		error,
 		loading,
 		totalTodos,
@@ -79,7 +74,7 @@ const useTodos = () => {
 		openModal,
 		setOpenModal,
 		sincronizeTodos,
-	})
+	}
 }
 
 export { useTodos }
