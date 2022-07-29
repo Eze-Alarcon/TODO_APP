@@ -1,5 +1,5 @@
 import "./App.css"
-import { useTodos } from "./customHooks/useTodos";
+import { useTodos } from "./customHooks/useTodos_v2";
 import { TodoCounter } from "./components/TodoCounter";
 import { TodoSearch } from "./components/TodoSearch.js";
 import { TodoList } from "./components/TodoList.js";
@@ -17,21 +17,43 @@ import { ChangeAlert } from "./components/ChangeAlert";
 
 const App = () =>{
 
+	// const { 
+	// 	error, 
+	// 	loading, 
+	// 	searchedTodos, 
+	// 	completeTodo, 
+	// 	deleteTodo,
+	// 	openModal,
+	// 	setOpenModal,
+	// 	totalTodos,
+	// 	completedTodos,
+	// 	searchValue,
+	// 	setSearchValue,
+	// 	addTodo,
+	// 	sincronizeTodos,
+	// } = useTodos()
+
+	const { state, stateUpdaters } = useTodos()
+
+	const {
+		error,
+        loading,
+        totalTodos,
+        completedTodos,
+        searchValue,
+        openModal,
+        searchedTodos,
+	} = state
+	
+
 	const { 
-		error, 
-		loading, 
-		searchedTodos, 
-		completeTodo, 
-		deleteTodo,
-		openModal,
-		setOpenModal,
-		totalTodos,
-		completedTodos,
-		searchValue,
 		setSearchValue,
 		addTodo,
+		completeTodo,
+		deleteTodo,
+		setOpenModal,
 		sincronizeTodos,
-	} = useTodos()
+	} = stateUpdaters
 
 	return (
     <> 
