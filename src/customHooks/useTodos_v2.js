@@ -15,22 +15,30 @@ const useTodos = () => {
 
 	const [searchValue, setSearchValue] = useState('')
 	const [openModal, setOpenModal] = useState(false)
+	const [selection, setSelection] = useState("all")
 	
-	const completedTodos = todos.filter(todo => !!todo.completed).length // !! === true
+	const completedTodos = todos.filter(todo => !!todo.completed).length
 	const totalTodos = todos.length
 
 	let searchedTodos = [];
 
-	if (!(searchValue.length >= 3)) {
-		searchedTodos = todos
+
+	if (selection === "active") {
+		searchedTodos = todos.filter(todo => !todo.completed)
+	} else if (selection === "completed") {
+		searchedTodos = todos.filter(todo => !!todo.completed)
 	} else {
+		searchedTodos = todos
+	}
+
+
+	if ((searchValue.length >= 3)) {
 		searchedTodos = todos.filter(todo => {
 			const todoText = todo.text.toLowerCase()
 			const searchText = searchValue.toLowerCase()
 			return todoText.includes(searchText)
 		})
 	}
-
 
 
 	const addTodo = (text) => {
@@ -47,7 +55,13 @@ const useTodos = () => {
 	const completeTodo = (text) => {
 		const todoIndex = todos.findIndex(todo => todo.text === text)
 		const newTodos = [...todos]
-		newTodos[todoIndex].completed = true
+
+		if (newTodos[todoIndex].completed) {
+			newTodos[todoIndex].completed = false
+		}
+		else {
+			newTodos[todoIndex].completed = true
+		}
 		saveTodos(newTodos)
 	}
 
@@ -59,11 +73,14 @@ const useTodos = () => {
 		saveTodos(newTodos)
 	}
 
+	const deleteCompletedTodos = () => {
+		const uncompletedTodos = todos.filter(todo => !todo.completed)
+		saveTodos(uncompletedTodos)
+	}
 
-    /* 
-        Actualizaremos el return de este custom hook dado que es 
-        bastante complejo, para ello, lo dividiremos usando objetos
-    */
+
+
+
 
     const state = {
         error,
@@ -73,6 +90,7 @@ const useTodos = () => {
         searchValue,
         openModal,
         searchedTodos,
+		selection,
     }
 
     const stateUpdaters =  {
@@ -82,6 +100,8 @@ const useTodos = () => {
 		deleteTodo,
 		setOpenModal,
 		sincronizeTodos,
+		deleteCompletedTodos,
+		setSelection
 	}
 
     return { state, stateUpdaters }

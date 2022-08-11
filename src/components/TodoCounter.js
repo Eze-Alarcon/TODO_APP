@@ -1,14 +1,20 @@
-import React from "react";
+const TodoCounter = ({totalTodos, completedTodos, loading, deleteCompletedTodos}) => {
 
-const TodoCounter = ({ totalTodos, completedTodos, loading }) => {
+    return (
+        <>
 
-	return (
-		<h2 className={`title ${!!loading && "loading"}` }>
-			{`Has completado ${completedTodos} de ${totalTodos} TODOs`}
-		</h2>
-	)
+        {
+            (loading) 
+            ? <p>Cargando</p>
+            : 
+                <>
+                    <p>{completedTodos} items {totalTodos} completados</p>
+                    <p onClick={deleteCompletedTodos}>Quitar Completados</p>
+                </>
+        }
+
+        </>
+    )
 }
 
-
 export { TodoCounter }
-  

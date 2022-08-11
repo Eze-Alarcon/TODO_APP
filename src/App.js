@@ -1,9 +1,14 @@
 import "./App.css"
+
+// Custom Hook
 import { useTodos } from "./customHooks/useTodos_v2";
-import { TodoCounter } from "./components/TodoCounter";
+
+// Components
+import { TodoHeader } from "./components/TodoHeader";
 import { TodoSearch } from "./components/TodoSearch.js";
 import { TodoList } from "./components/TodoList.js";
 import { TodoItem } from "./components/TodoItem.js";
+import { TodoCounter } from "./components/TodoCounter";
 import { CreateTodoButton } from "./components/CreateTodoButton";
 import { TodoFilter } from "./components/TodoFilter";
 import { Modal } from "./components/Modal"; 
@@ -17,22 +22,6 @@ import { ChangeAlert } from "./components/ChangeAlert";
 
 const App = () =>{
 
-	// const { 
-	// 	error, 
-	// 	loading, 
-	// 	searchedTodos, 
-	// 	completeTodo, 
-	// 	deleteTodo,
-	// 	openModal,
-	// 	setOpenModal,
-	// 	totalTodos,
-	// 	completedTodos,
-	// 	searchValue,
-	// 	setSearchValue,
-	// 	addTodo,
-	// 	sincronizeTodos,
-	// } = useTodos()
-
 	const { state, stateUpdaters } = useTodos()
 
 	const {
@@ -43,6 +32,7 @@ const App = () =>{
         searchValue,
         openModal,
         searchedTodos,
+		selection,
 	} = state
 	
 
@@ -53,14 +43,15 @@ const App = () =>{
 		deleteTodo,
 		setOpenModal,
 		sincronizeTodos,
+		deleteCompletedTodos,
+		setSelection,
 	} = stateUpdaters
+
 
 	return (
     <> 
 
-	<TodoCounter 
-		totalTodos={totalTodos}
-		completedTodos={completedTodos}
+	<TodoHeader 
 		loading={loading}
 	/>
 
@@ -86,7 +77,18 @@ const App = () =>{
 			onEmptySearchResults={
 				() => <EmptyResults searchText={searchValue}/>
 			}
-			/* render={todo => (
+
+			renderCounter={
+				() => ( <TodoCounter
+					totalTodos={totalTodos}
+					completedTodos={completedTodos}
+					loading={loading}
+					deleteCompletedTodos={deleteCompletedTodos}
+				/> )}
+			
+		>
+
+			{todo => (
 				<TodoItem 
 					text={todo.text} 
 					key={todo.text}
@@ -94,22 +96,16 @@ const App = () =>{
 					onComplete={() => completeTodo(todo.text)}
 					onDelete={() => deleteTodo(todo.text)}
 				/>
-			)} */
-		>
-
-		{todo => (
-			<TodoItem 
-				text={todo.text} 
-				key={todo.text}
-				completed={todo.completed}
-				onComplete={() => completeTodo(todo.text)}
-				onDelete={() => deleteTodo(todo.text)}
-			/>
-		)}
+			)}
 		
+			{/* Fin del TodoList (no es un nuevo componente) */}
 		</TodoList>
 
-		<TodoFilter/>
+
+		<TodoFilter
+			selection={selection}
+			setSelection={setSelection}
+		/> 
 
 
 	</section>
