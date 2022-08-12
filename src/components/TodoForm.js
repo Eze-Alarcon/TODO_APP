@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { ButtonsContainer, FormButton, FormContainerStyle, FormStyle } from "./styled/StyledComponent"
 
 
 
@@ -21,8 +22,8 @@ const TodoForm = ({ addTodo, setOpenModal }) => {
 
 
     return (
-        <div className="TodoFormContainer">
-            <form onSubmit={onSubmit} className="TodoForm" >
+        <FormContainerStyle>
+            <FormStyle onSubmit={onSubmit} >
                 <label>
                     Escribe tu nuevo TODO
                 </label>
@@ -31,23 +32,23 @@ const TodoForm = ({ addTodo, setOpenModal }) => {
                     value={newTodoValue} 
                     onChange={onChange}   
                 />
-                <div className="TodoForm-buttonContainer">
-                    <button
-                        className="TodoForm-button TodoForm-button--cancel"
+                <ButtonsContainer>
+                    <FormButton
+                        className="cancel"
                         type="button"
                         onClick={onCancel}
                     >
                         Cancelar
-                    </button>
-                    <button
-                        className="TodoForm-button TodoForm-button--add"
+                    </FormButton>
+                    <FormButton
+                        className="add"
                         type="submit"
                     >
                         Añadir
-                    </button>
-                </div>
-            </form>
-        </div>
+                    </FormButton>
+                </ButtonsContainer>
+            </FormStyle>
+        </FormContainerStyle>
     )
 }
 

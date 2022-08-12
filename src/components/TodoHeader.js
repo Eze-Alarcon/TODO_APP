@@ -1,15 +1,15 @@
-import React from "react";
+import { HeaderStyled, HeaderIcon } from "./styled/StyledComponent"
 
-const TodoHeader = ({ loading }) => {
+const TodoHeader = ({ loading, themeToggler }) => {
 
 	return (
-		<header className="header">
-			<h2 className={`title ${!!loading && "loading"}` }>
-				TODO
-			</h2>
+		<HeaderStyled 
+			className={`${!!loading && "loading"}` }
+		>
+			<h2 className="title">TODO</h2>
 
-			<i className="header--icon"></i>
-		</header>
+			<HeaderIcon onClick={themeToggler}/>
+		</HeaderStyled>
 	)
 }
 

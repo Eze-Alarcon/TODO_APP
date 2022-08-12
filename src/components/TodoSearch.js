@@ -1,4 +1,5 @@
 import React from "react";
+import { InputStyled } from "./styled/StyledComponent";
 
 
 const TodoSearch = ({ searchValue, setSearchValue, loading }) => {
@@ -8,8 +9,7 @@ const TodoSearch = ({ searchValue, setSearchValue, loading }) => {
 	}
 
   	return (
-		<input 
-			className="input" 
+		<InputStyled 
 			placeholder="Buscador de TODOs"
 			value={searchValue}
 			onChange={onSearchValueChange} 

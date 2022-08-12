@@ -1,5 +1,6 @@
 import React from "react";
 import { useStorageListener } from "./HOC/useStorageListener";
+import { AlertContainerStyle, AlertStyle, FormButton } from "./styled/StyledComponent";
 
 const ChangeAlert = ({ sync }) => {
 
@@ -7,18 +8,18 @@ const ChangeAlert = ({ sync }) => {
 
     if (show) {
         return (
-            <div className="ChangeAlert-bg">
-                <div className="ChangeAlertContainer">
+            <AlertStyle>
+                <AlertContainerStyle>
                 <p>Parece que cambiaste tus TODOs en otra pestaña o ventana del navegador.</p>
                 <p>¿Quieres sincronizar tus TODOs?</p>
-                <button
-                    className="TodoForm-button TodoForm-button--add"
+                <FormButton
+                    className="add"
                     onClick={toggleShow}
                 >
                     Yes!
-                </button>
-                </div>
-            </div>
+                </FormButton>
+                </AlertContainerStyle>
+            </AlertStyle>
         );
     } else {
         return null;

@@ -1,26 +1,28 @@
+import { FilterItem, TodoFilterStyled } from "./styled/StyledComponent"
+
 const TodoFilter = ({selection, setSelection}) => {
     return (
         <>
-            <article className="todoFilter">
-                <p 
-                    className={(selection === "all") ? "filter active" : "filter" } 
+            <TodoFilterStyled>
+                <FilterItem 
+                    className={(selection === "all") ? "active" : "" } 
                     onClick={() => setSelection("all") } 
                 >
                     Todos
-                </p>
-                <p 
-                    className={(selection === "active") ? "filter active" : "filter" }
+                </FilterItem>
+                <FilterItem 
+                    className={(selection === "active") ? "active" : "" }
                     onClick={() => setSelection("active") } 
                 >
                         Activos
-                </p>
-                <p 
-                    className={(selection === "completed") ? "filter active" : "filter" }
+                </FilterItem>
+                <FilterItem 
+                    className={(selection === "completed") ? "active" : "" }
                     onClick={() => setSelection("completed") } 
                 >
                         Completados
-                </p>
-            </article>
+                </FilterItem>
+            </TodoFilterStyled>
         </>
     )
 }

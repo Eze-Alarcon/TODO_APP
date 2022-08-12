@@ -1,10 +1,12 @@
+import { TodoListContainer, TodoListFooter, TodoListStyled } from "./styled/StyledComponent";
+
 const TodoList = (props) => {
     return(
-        <section className="todoListContainer">
+        <TodoListContainer>
 
 
 
-            <ul className="todoList">
+            <TodoListStyled>
 
                 {props.error && props.onError()}
                 {props.loading && props.onLoading()}
@@ -18,11 +20,11 @@ const TodoList = (props) => {
                 {(!props.error && !props.loading) 
                     && props.searchedTodos.map(props.render || props.children)} 
 
-            </ul>
-            <div className="todoListFooter">
+            </TodoListStyled>
+            <TodoListFooter>
                 { props.renderCounter() }
-            </div>
-        </section>
+            </TodoListFooter>
+        </TodoListContainer>
     );
 }
 

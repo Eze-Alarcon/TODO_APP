@@ -20,7 +20,20 @@ import { EmptyResults } from "./components/EmptyResults";
 import { ChangeAlert } from "./components/ChangeAlert";
 
 
+// Styled Components
+import { SectionStyled, InputContainerStyled } from "./components/styled/StyledComponent";
+import { GlobalStyles } from "./components/styled/GlobaStyles";
+import { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme } from "./components/styled/themes";
+import { useDarkTheme } from "./components/styled/UseDarkTheme";
+
+
+
 const App = () =>{
+
+	const [theme, themeToggler] = useDarkTheme();
+   const selectedTheme = theme === 'light' ? lightTheme : darkTheme;
+
 
 	const { state, stateUpdaters } = useTodos()
 
@@ -49,14 +62,17 @@ const App = () =>{
 
 
 	return (
-    <> 
+    <ThemeProvider theme={selectedTheme}> 
+
+	<GlobalStyles/>
 
 	<TodoHeader 
 		loading={loading}
+		themeToggler={themeToggler}
 	/>
 
-	<section className="interactionContainer">
-		<article className="inputContainer">
+	<SectionStyled>
+		<InputContainerStyled>
 			<TodoSearch
 				searchValue={searchValue}
 				setSearchValue={setSearchValue}
@@ -64,7 +80,7 @@ const App = () =>{
 			/>
 			<CreateTodoButton 
 			setOpenModal={setOpenModal} />
-		</article>
+		</InputContainerStyled>
 
 		<TodoList
 			error={error}	
@@ -108,7 +124,7 @@ const App = () =>{
 		/> 
 
 
-	</section>
+	</SectionStyled>
 
 	{
 		(!!openModal) && (
@@ -123,7 +139,7 @@ const App = () =>{
 
 	<ChangeAlert sync={sincronizeTodos} />
 
-	</>
+	</ThemeProvider>
     )
 }
 
