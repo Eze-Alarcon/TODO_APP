@@ -557,15 +557,9 @@ export const FirstTodoStyle = styled.li`
         font-size: 1.3rem;
         line-height: 1.5rem;
         letter-spacing: 0.17px;
-        color: ${({theme}) => theme.normal};
+        color: ${({theme}) => theme.todo};
     }
 
-    @media (min-width: 768px) {
-        & .text {
-            font-size: 1.8rem;
-            line-height: 1.8rem;
-        }
-    }
 `
 
 /* 
