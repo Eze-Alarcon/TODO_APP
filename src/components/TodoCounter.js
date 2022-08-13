@@ -1,4 +1,4 @@
-const TodoCounter = ({totalTodos, completedTodos, loading, deleteCompletedTodos}) => {
+const TodoCounter = ({ totalTodos, completedTodos, loading, deleteCompletedTodos }) => {
 
     return (
         <>

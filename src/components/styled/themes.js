@@ -31,6 +31,8 @@ export const lightTheme = {
     font: 'Josefin Sans, sans-serif',    
 }
 
+
+
 export const darkTheme = {
     body: '#171823',
 

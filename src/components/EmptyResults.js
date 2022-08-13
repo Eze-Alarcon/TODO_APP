@@ -1,8 +1,14 @@
+import { FirstTodoStyle } from "./styled/StyledComponent"
+
 const EmptyResults = ({ searchText })  => {
     return (
-        <li className="firstTodo">
-            <p className="text">No se encuentran TODOs de {searchText}.</p>
-        </li>
+        <FirstTodoStyle>
+            {
+                (!!searchText) 
+                    ? <p className="text">No se encuentran TODOs de {searchText}.</p>
+                    : <p className="text">No se encuentran TODOs con los parametros indicados.</p>
+            }
+        </FirstTodoStyle>
     )
 }
 

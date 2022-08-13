@@ -2,10 +2,7 @@ import { TodoButtonStyled } from "./styled/StyledComponent";
 
 const CreateTodoButton = ({ setOpenModal }) => {
 
-    const handleModal = () => {
-        setOpenModal(true)
-    }
-
+    const handleModal = () => setOpenModal(true)
 
     return(
         <TodoButtonStyled onClick={handleModal}>

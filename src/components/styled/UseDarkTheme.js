@@ -6,7 +6,7 @@ const THEMES = {
 }
 
 const useDarkTheme = () => {
-    const [theme, setTheme] = useState(THEMES.LIGHT)
+    const [ theme, setTheme ] = useState(THEMES.LIGHT)
 
     const themeToggler = () => {
         theme === THEMES.LIGHT 

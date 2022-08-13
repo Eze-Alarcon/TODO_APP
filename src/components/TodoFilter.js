@@ -14,13 +14,13 @@ const TodoFilter = ({selection, setSelection}) => {
                     className={(selection === "active") ? "active" : "" }
                     onClick={() => setSelection("active") } 
                 >
-                        Activos
+                    Activos
                 </FilterItem>
                 <FilterItem 
                     className={(selection === "completed") ? "active" : "" }
                     onClick={() => setSelection("completed") } 
                 >
-                        Completados
+                    Completados
                 </FilterItem>
             </TodoFilterStyled>
         </>

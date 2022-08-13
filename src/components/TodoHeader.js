@@ -11,7 +11,7 @@ const TodoHeader = ({ loading, themeToggler, iconType }) => {
 			<HeaderIcon 
 				onClick={themeToggler}
 				className={iconType === 'light' ? 'light' : 'dark'}
-				/>
+			/>
 		</HeaderStyled>
 	)
 }

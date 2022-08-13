@@ -4,8 +4,6 @@ const TodoList = (props) => {
     return(
         <TodoListContainer>
 
-
-
             <TodoListStyled>
 
                 {props.error && props.onError()}
@@ -21,9 +19,11 @@ const TodoList = (props) => {
                     && props.searchedTodos.map(props.render || props.children)} 
 
             </TodoListStyled>
+            
             <TodoListFooter>
                 { props.renderCounter() }
             </TodoListFooter>
+
         </TodoListContainer>
     );
 }
