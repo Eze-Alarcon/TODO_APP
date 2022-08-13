@@ -1,6 +1,6 @@
 import { HeaderStyled, HeaderIcon } from "./styled/StyledComponent"
 
-const TodoHeader = ({ loading, themeToggler }) => {
+const TodoHeader = ({ loading, themeToggler, iconType }) => {
 
 	return (
 		<HeaderStyled 
@@ -8,7 +8,10 @@ const TodoHeader = ({ loading, themeToggler }) => {
 		>
 			<h2 className="title">TODO</h2>
 
-			<HeaderIcon onClick={themeToggler}/>
+			<HeaderIcon 
+				onClick={themeToggler}
+				className={iconType === 'light' ? 'light' : 'dark'}
+				/>
 		</HeaderStyled>
 	)
 }

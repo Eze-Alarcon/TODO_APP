@@ -1,5 +1,3 @@
-import "./App.css"
-
 // Custom Hook
 import { useTodos } from "./customHooks/useTodos_v2";
 
@@ -32,7 +30,9 @@ import { useDarkTheme } from "./components/styled/UseDarkTheme";
 const App = () =>{
 
 	const [theme, themeToggler] = useDarkTheme();
-   const selectedTheme = theme === 'light' ? lightTheme : darkTheme;
+   	const selectedTheme = theme === 'light' 
+   		? lightTheme 
+		: darkTheme;
 
 
 	const { state, stateUpdaters } = useTodos()
@@ -69,6 +69,7 @@ const App = () =>{
 	<TodoHeader 
 		loading={loading}
 		themeToggler={themeToggler}
+		iconType={theme}
 	/>
 
 	<SectionStyled>

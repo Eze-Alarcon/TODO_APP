@@ -16,9 +16,9 @@ export const HeaderStyled = styled.header`
     justify-content: space-between;
 
     & .title {
-        color: ${({theme}) => theme.pureWhite};
+        color: ${({theme}) => theme.title};
         text-align: center;
-        font-family: var(--font);
+        font-family: ${({theme}) => theme.font};
         font-weight: 700;
         font-size: 2.5rem;
         line-height: 2.5rem;
@@ -42,11 +42,18 @@ export const HeaderStyled = styled.header`
 `
 
 export const HeaderIcon = styled.i`
-    background-image: url('./images/icon-moon.svg');
     background-size: 100%;
     height: 25px;
     width: 25px;
     cursor: pointer;
+
+    &.light {
+        background-image: url('./images/icon-moon.svg');
+    }
+
+    &.dark {
+        background-image: url('./images/icon-sun.svg');
+    }
 `
 
 
@@ -83,7 +90,7 @@ export const SectionStyled =styled.section`
 */
 
 export const InputContainerStyled =styled.article`
-    background-color: var(--pureWhite);
+    background-color: ${({theme}) => theme.input};
     width: 100%;
     min-height: 4.8rem;
     border-radius: 5px;
@@ -105,15 +112,16 @@ export const InputStyled = styled.input`
     height: 4.8rem;
     margin: 0;
     padding: 0;
-    font-family: var(--font);
-    color: var(--standBy-light);
+    font-family: ${({theme}) => theme.font};
+    color: ${({theme}) => theme.inputText};
+    background-color: ${({theme}) => theme.input};
     font-weight: 400;
     font-size: 1.3rem;
     line-height: 1.5rem;
     letter-spacing: 0.17px;
 
     &:focus {
-        color: var(--normal-light);
+        color: ${({theme}) => theme.inputTextActive};
     }
 
     &:disabled {
@@ -168,17 +176,15 @@ export const TodoButtonStyled = styled.button`
 
 
 export const TodoListContainer = styled.article`
-    background-color: var(--pureWhite);
-    --itemHeight: 4.8rem;
-    min-height: calc(var(--itemHeight) * 9);
+    background-color: ${({theme}) => theme.container};
+    min-height: calc(4.8rem * 9);
     width: 100%;
     border-radius: 5px;
-    box-shadow: 0 0 20px 0 hsla(235, 9%, 61%, 1);
+    box-shadow: 0 0 20px 0 ${({theme}) => theme.boxShadow};
 `
 
 export const TodoListStyled = styled.ul`
-    --itemHeight: 4.8rem;
-    height: calc(var(--itemHeight) * 8);
+    height: calc(4.8rem * 8);
     overflow-y: scroll;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
@@ -193,16 +199,15 @@ export const TodoListStyled = styled.ul`
 `
 
 export const TodoListFooter = styled.div`
-    --itemHeight: 4.8rem;
-    height: var(--itemHeight);
+    height: 4.8rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 2rem 0 2rem;
-    border-top: 1px solid hsla(236, 32%, 92%, 1);
+    border-top: 1px solid ${({theme}) => theme.circleBorder};
 
     & p {
-        color: var(--standBy-light);
+        color: ${({theme}) => theme.footer};
     }
 
     & p:nth-child(2) {
@@ -218,14 +223,14 @@ export const TodoItemStyled = styled.li`
     justify-content: space-between;
     margin: 0;
     padding: 0 2rem 0 2rem;
-    border-bottom: .5px solid hsla(236, 32%, 92%, 1);
+    border-bottom: .5px solid ${({theme}) => theme.circleBorder};
     cursor: pointer;
 
 
     & .icon-check {
         width: 20px;
         height: 20px;
-        border: 1px solid var(--standBy-light);
+        border: 1px solid ${({theme}) => theme.circleBorder};
         border-radius: 50%;
         margin: 0 1.2rem 0 0;
         padding: 0;
@@ -235,13 +240,15 @@ export const TodoItemStyled = styled.li`
 
 
     &.completed .icon-check {
-        background-color: var(--gradientColor1);
-        background-image: linear-gradient(135deg, var(--gradientColor1) 0%, var(--gradientColor2) 100%);
+        background-color: ${({theme}) => theme.gradient.color1};
+        background-image: linear-gradient(135deg, 
+            ${({theme}) => theme.gradient.color1} 0%, 
+            ${({theme}) => theme.gradient.color2} 100%);
     }
 
     &.completed .text {
         text-decoration: line-through;
-        color: var(--standBy-light);
+        color: ${({theme}) => theme.todoComplete};
     }
 
 
@@ -253,7 +260,7 @@ export const TodoItemStyled = styled.li`
         font-size: 1.3rem;
         line-height: 1.5rem;
         letter-spacing: 0.17px;
-        color: var(--normal-light);
+        color: ${({theme}) => theme.todo};
     }
 
     & .icon-delete {
@@ -265,7 +272,7 @@ export const TodoItemStyled = styled.li`
     }
 
     & .icon-delete:hover svg path {
-        fill: #ff0000;
+        fill: ${({theme}) => theme.svgDelete};
     }
 
 
@@ -299,7 +306,8 @@ export const TodoFilterStyled = styled.article`
     height: 4.8rem;
     width: 100%;
     border-radius: 5px;
-    box-shadow: 0 9px 20px 0 hsla(235, 9%, 61%, 1);
+    background-color: ${({theme}) => theme.container};
+    box-shadow: 0 9px 20px 0 ${({theme}) => theme.boxShadow};
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -307,14 +315,14 @@ export const TodoFilterStyled = styled.article`
 `
 
 export const FilterItem = styled.p`
-    color: var(--standBy-light);
+    color: ${({theme}) => theme.footer};
     font-weight: bold;
     font-size: 1.4rem;
     line-height: 1.4rem;
     cursor: pointer;
 
     &.active {
-        color: var(--selection-light);
+        color: ${({theme}) => theme.footerActive};
     }
 `
 
@@ -345,7 +353,7 @@ export const FormContainerStyle = styled.div`
 export const FormStyle = styled.form`
     width: 90%;
     max-width: 300px;
-    background-color: #fff;
+    background-color: ${({theme}) => theme.input};
     padding: 33px 40px;
     display: flex;
     justify-content: center;
@@ -473,7 +481,7 @@ export const AlertContainerStyle = styled.div`
 export const LoadingStyle = styled.li`
     width: 100%;
     height: 4.8rem;
-    border-bottom: .5px solid hsla(236, 32%, 92%, 1);
+    border-bottom: .5px solid ${({theme}) => theme.circleBorder};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -498,10 +506,11 @@ export const LoadingCircle = styled.span`
     border-radius: 50%;
     margin: 0 1.2rem 0 0;
 
-    & .loadingEfect {
-        --color1: rgba(250,250,250,1);
-        --color2: rgb(200,199,199);
-        background: linear-gradient(90deg, var(--color1), var(--color2));
+    &.loadingEfect {
+        background: linear-gradient(
+            90deg, 
+            ${({theme}) => theme.loading.color1}, 
+            ${({theme}) => theme.loading.color2});
         background-size: 400% 400%;
         animation: ${loadingAnimation} 3s ease-in-out infinite;
     }
@@ -512,10 +521,11 @@ export const LoadingText = styled.p`
     width: 80%;
     border-radius: 10px;
 
-    & .loadingEfect {
-        --color1: rgba(250,250,250,1);
-        --color2: rgb(200,199,199);
-        background: linear-gradient(90deg, var(--color1), var(--color2));
+    &.loadingEfect {
+        background: linear-gradient(
+            90deg, 
+            ${({theme}) => theme.loading.color1}, 
+            ${({theme}) => theme.loading.color2});
         background-size: 400% 400%;
         animation: ${loadingAnimation} 3s ease-in-out infinite;
     }
@@ -537,7 +547,7 @@ export const FirstTodoStyle = styled.li`
     margin: 0;
     padding: 0 2rem 0 2rem;
     border: none;
-    border-bottom: .5px solid hsla(236, 32%, 92%, 1);
+    border-bottom: .5px solid ${({theme}) => theme.circleBorder};
 
     & .text {
         width: 80%;
@@ -547,7 +557,7 @@ export const FirstTodoStyle = styled.li`
         font-size: 1.3rem;
         line-height: 1.5rem;
         letter-spacing: 0.17px;
-        color: var(--normal-light);
+        color: ${({theme}) => theme.normal};
     }
 
     @media (min-width: 768px) {
