@@ -1,4 +1,3 @@
-import React from "react";
 import { useStorageListener } from "./HOC/useStorageListener";
 import { AlertContainerStyle, AlertStyle, FormButton } from "./styled/StyledComponent";
 

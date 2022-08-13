@@ -16,6 +16,9 @@ const useTodos = () => {
 	const [searchValue, setSearchValue] = useState('')
 	const [openModal, setOpenModal] = useState(false)
 	
+
+	
+
 	const completedTodos = todos.filter(todo => !!todo.completed).length // !! === true
 	const totalTodos = todos.length
 

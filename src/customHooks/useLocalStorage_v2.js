@@ -32,7 +32,7 @@ function useLocalStorage(itemName, initialValue) {
 	})
 
 	const onSincronize = () => dispatch({ 
-		type: actionTypes.save, 
+		type: actionTypes.sincronize, 
 	})
 	
 
